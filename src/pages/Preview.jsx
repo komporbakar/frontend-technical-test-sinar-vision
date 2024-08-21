@@ -6,13 +6,15 @@ export default function Preview() {
   const [posts, setPosts] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [limit] = useState(5); // Limit per halaman
+  const [limit] = useState(5); 
+  const [totalArticle, setTotalArticle] = useState(0);
 
   const fetchPosts = async (page = 0) => {
     try {
       const response = await axiosInstance.get(`/article/${limit}/${page * limit}`);
       setPosts(response.data.data);
-      setPageCount(Math.ceil(response.data.total / limit)); // Total halaman
+      setTotalArticle(response.data.total_count); // Update total_count
+      setPageCount(Math.ceil(response.data.total_count / limit)); // Calculate total pages
     } catch (error) {
       console.error('Error fetching posts', error);
     }

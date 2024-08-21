@@ -1,0 +1,19 @@
+.pagination-item {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pagination-link {
+  color: #3c112e;
+  text-decoration: none;
+}
+
+.pagination-link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  background-color: #bce918;
+  color: white;
+}
